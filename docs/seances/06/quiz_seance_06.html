@@ -301,13 +301,13 @@
           id: "q1",
           text: "Ceci est une question placeholder. Quelle est la bonne réponse ?",
           options: [
-            { value: "A", label: "Réponse A" },
-            { value: "B", label: "Réponse B" },
+            { value: "A", label: "Première proposition" },
+            { value: "B", label: "Deuxième proposition" },
             { value: "C", label: "La bonne réponse" },
-            { value: "D", label: "Réponse D" },
+            { value: "D", label: "Quatrième proposition" },
           ],
           correct: "C",
-          feedback: "Placeholder : la bonne réponse est C. Remplacez cette question par le quiz de la séance 6.",
+          feedback: "Placeholder : la bonne réponse est « La bonne réponse ». Remplacez cette question par le quiz de la séance 6.",
         },
       ];
 
@@ -366,6 +366,14 @@
         });
       }
 
+      function optionLetter(index) {
+        return String.fromCharCode(65 + index);
+      }
+
+      function stripLetterPrefix(label) {
+        return String(label).replace(/^\s*[A-Da-d][.)]\s+/, "");
+      }
+
       function getCurrentQuestion() {
         return questions[currentIndex];
       }
@@ -374,7 +382,7 @@
         return `
           <ul class="recap-options">
             ${question.options
-              .map((option) => {
+              .map((option, index) => {
                 const isCorrect = option.value === question.correct;
                 const isChosen = option.value === answer;
                 const classes = ["recap-option"];
@@ -385,7 +393,7 @@
                 if (isCorrect) tag = '<span class="recap-tag">bonne réponse</span>';
                 else if (isChosen) tag = '<span class="recap-tag">réponse sélectionnée</span>';
 
-                return `<li class="${classes.join(" ")}">${option.value}. ${option.label}${tag}</li>`;
+                return `<li class="${classes.join(" ")}">${optionLetter(index)}. ${stripLetterPrefix(option.label)}${tag}</li>`;
               })
               .join("")}
           </ul>
@@ -403,7 +411,7 @@
           <div class="answers">
             ${question.options
               .map(
-                (option) => `
+                (option, index) => `
               <label>
                 <input
                   type="radio"
@@ -412,7 +420,7 @@
                   ${selected === option.value ? "checked" : ""}
                   ${checked ? "disabled" : ""}
                 />
-                ${option.value}. ${option.label}
+                ${optionLetter(index)}. ${stripLetterPrefix(option.label)}
               </label>
             `
               )
