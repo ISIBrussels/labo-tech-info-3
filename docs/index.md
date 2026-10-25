@@ -7,10 +7,10 @@ Vous y trouverez l'ensemble des ressources du laboratoire :
 - les **slides de cours** et des **quiz**
 - les **énoncés d'exercices**
 
-<!-- -->
-
-- Format : 7 séances de 3 heures
-- Évaluation : examen écrit de 2 heures, sur PC de laboratoire, à cahier fermé
+<ul>
+<li><strong>Format</strong> : 7 séances de 3 heures</li>
+<li><strong>Évaluation</strong> : examen écrit de 2 heures, sur PC de laboratoire, à cahier fermé</li>
+</ul>
 
 ## Tableau des séances
 
