@@ -13,6 +13,7 @@ Thème à définir
 
 [→ Quiz](quiz_seance_06.html)
 [→ Exercices](exercices_seance_06.html)
+[→ Syllabus](syllabus_seance_06.html)
 
 ---
 

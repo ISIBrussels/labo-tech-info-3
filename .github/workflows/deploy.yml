@@ -43,20 +43,22 @@ jobs:
             fi
           done
 
-      - name: Build exercise pages (Markdown to static HTML)
+      - name: Build exercise and syllabus pages (Markdown to static HTML)
         run: |
-          for file in docs/seances/*/exercices_seance_*.md; do
-            if [ -f "$file" ]; then
-              out="dist/${file#docs/}"
-              out="${out%.md}.html"
-              mkdir -p "$(dirname "$out")"
+          build_md_page() {
+            local file="$1"
+            local title_suffix="$2"
+            local out="dist/${file#docs/}"
+            out="${out%.md}.html"
+            mkdir -p "$(dirname "$out")"
 
-              body="$(marked "$file")"
-              session_num="${file##*_seance_}"
-              session_num="${session_num%.md}"
-              session_num=$((10#$session_num))
-              page_title="Séance ${session_num} — Exercices"
-              cat > "$out" <<EOF
+            local body session_num page_title
+            body="$(marked "$file")"
+            session_num="${file##*_seance_}"
+            session_num="${session_num%.md}"
+            session_num=$((10#$session_num))
+            page_title="Séance ${session_num} — ${title_suffix}"
+            cat > "$out" <<EOF
           <!doctype html>
           <html lang="fr">
             <head>
@@ -186,6 +188,17 @@ jobs:
             </body>
           </html>
           EOF
+          }
+
+          for file in docs/seances/*/exercices_seance_*.md; do
+            if [ -f "$file" ]; then
+              build_md_page "$file" "Exercices"
+            fi
+          done
+
+          for file in docs/seances/*/syllabus_seance_*.md; do
+            if [ -f "$file" ]; then
+              build_md_page "$file" "Syllabus"
             fi
           done
 
@@ -194,6 +207,7 @@ jobs:
           sed -E \
             -e 's#(seances/[0-9]{2}/cours_seance_[0-9]{2})\.md#\1.html#g' \
             -e 's#(seances/[0-9]{2}/exercices_seance_[0-9]{2})\.md#\1.html#g' \
+            -e 's#(seances/[0-9]{2}/syllabus_seance_[0-9]{2})\.md#\1.html#g' \
             docs/index.md > /tmp/pages-index.md
 
           body="$(marked /tmp/pages-index.md)"
@@ -274,12 +288,14 @@ jobs:
                   font-weight: 600;
                   font-size: 0.9rem;
                   letter-spacing: 0.03em;
-                  padding: 0.75rem 1rem;
-                  border: none;
+                  padding: 0.55rem 0.75rem;
+                  border: 1px solid rgba(255, 255, 255, 0.25);
+                  text-align: center;
+                  vertical-align: middle;
                 }
 
                 tbody td {
-                  padding: 0.75rem 1rem;
+                  padding: 0.75rem 0.75rem;
                   border-bottom: 1px solid var(--color-border);
                   vertical-align: middle;
                 }
@@ -301,11 +317,12 @@ jobs:
 
                 tbody td:nth-child(2) {
                   font-size: 0.95rem;
+                  text-align: left;
                 }
 
                 tbody td:nth-child(n+3) {
                   text-align: center;
-                  width: 7rem;
+                  width: 5.5rem;
                 }
 
                 table a {
