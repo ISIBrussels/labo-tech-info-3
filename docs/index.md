@@ -1,16 +1,16 @@
 # Laboratoire de Techniques Informatiques 3
 
-Bienvenue. Ce site est destiné aux étudiants de l'activité d'apprentissage **Laboratoire de Techniques Informatiques 3** du **3e bachelier** à l'**ISIB** (HE2B).
+Bienvenue. Ce site est destiné aux étudiants de l'activité d'apprentissage **Laboratoire de Techniques Informatiques 3** du 3e bachelier à l'ISIB (HE2B).
 
 Vous y trouverez l'ensemble des ressources du laboratoire :
 
-- le contenu de cours sous forme de **slides** et de **syllabus** (même contenu, deux formes différentes), ainsi que des **quiz**
-- les **énoncés d'exercices**
+- le cours sous deux formes : slides et syllabus (même contenu), et des quiz
+- les énoncés d'exercices
 
-    <ul>
-<li><strong>Format</strong> : 7 séances de 3 heures</li>
-<li><strong>Évaluation</strong> : examen écrit de 2 heures, sur PC de laboratoire, à cahier fermé</li>
-</ul>
+<!-- sépare les deux listes (sinon Markdown les fusionne) -->
+
+- **Format** : 7 séances de 3 heures
+- **Évaluation** : examen écrit de 2 heures, sur PC de laboratoire, à cahier fermé
 
 ## Tableau des séances
 
