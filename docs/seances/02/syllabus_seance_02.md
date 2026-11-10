@@ -1,11 +1,9 @@
-# Séance 2 — Syllabus
+# Séance 2 — Thème à définir
 
 <nav class="page-nav">
   <a href="../../index.html">← Retour à l'accueil</a>
   <a href="cours_seance_02.html">Slides du cours</a>
 </nav>
-
-Thème à définir
 
 ## Objectifs de la séance
 
