@@ -4,15 +4,15 @@ theme: tech-info
 title: "Séance 1 — Thème à définir"
 paginate: true
 header: "Labo Tech Info 3 — Séance 1 [Sylvain Huraux - HE2B - ISIB](mailto:shuraux@he2b.be)"
-footer: "[← Retour à l'accueil](../../index.html)"
+footer: "[Accueil](../../index.html)"
 ---
 
 # Séance 1
 
 Thème à définir
 
-[→ Quiz](quiz_seance_01.html)
-[→ Exercices](exercices_seance_01.html)
+[Quiz](quiz_seance_01.html)
+[Exercices](exercices_seance_01.html)
 [→ Syllabus](syllabus_seance_01.html)
 
 ---
